@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yuragi CTF</title>
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b1213'/%3E%3Ccircle cx='10' cy='16' r='5' fill='none' stroke='%23e3a857' stroke-width='2.5'/%3E%3Ccircle cx='22' cy='16' r='5' fill='none' stroke='%237ad9c5' stroke-width='2.5'/%3E%3Cpath d='M16 4v24' stroke='%23ff7a59' stroke-width='2' stroke-dasharray='3 3'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip"></a>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#main" data-i18n-attr="aria-label:brand.label">
+      <svg class="brand-mark" viewBox="0 0 40 28" aria-hidden="true" focusable="false">
+        <circle cx="10" cy="14" r="7.5" class="bm-a"/>
+        <circle cx="30" cy="14" r="7.5" class="bm-b"/>
+        <path d="M20 1v26" class="bm-cut"/>
+        <path d="M17.5 14h5" class="bm-leak"/>
+      </svg>
+      <span class="brand-name">Yuragi <b>CTF</b></span>
+    </a>
+
+    <div class="lang" role="group" data-i18n-attr="aria-label:lang.label">
+      <button type="button" data-lang="ja" lang="ja" aria-pressed="false">日本語</button>
+      <button type="button" data-lang="en" lang="en" aria-pressed="false">English</button>
+    </div>
+
+    <nav class="nav" data-i18n-attr="aria-label:nav.label">
+      <button type="button" data-soon="nav.challenges" data-i18n="nav.challenges"></button>
+      <button type="button" data-soon="nav.scoreboard" data-i18n="nav.scoreboard"></button>
+      <button type="button" data-soon="nav.learn" data-i18n="nav.learn"></button>
+      <button type="button" class="nav-sign" data-soon="nav.signin" data-i18n="nav.signin"></button>
+    </nav>
+  </div>
+</header>
+
+<noscript>
+  <p class="noscript">このモックアップの表示には JavaScript が必要です。 / This mockup needs JavaScript to show its text.</p>
+</noscript>
+
+<main id="main" tabindex="-1">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap hero-in">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+        <h1 data-i18n="hero.h1"></h1>
+        <p class="lead" data-i18n="hero.lead"></p>
+        <div class="cta">
+          <button type="button" class="btn btn-main" data-soon="nav.challenges">
+            <span data-i18n="hero.cta"></span>
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 8h9M8.5 4l4 4-4 4"/></svg>
+          </button>
+          <a class="btn btn-ghost" href="#how" data-i18n="hero.cta2"></a>
+        </div>
+        <p class="hero-note" data-i18n="hero.note"></p>
+      </div>
+
+      <div class="chip" id="chip" data-channel="xt">
+        <svg class="chip-svg" viewBox="0 0 600 420" role="img" data-i18n-attr="aria-label:fig.label">
+          <defs>
+            <clipPath id="chip-clip"><rect x="21" y="41" width="558" height="338" rx="13"/></clipPath>
+          </defs>
+
+          <!-- chip body and the two tenant regions -->
+          <rect class="chip-body" x="20" y="40" width="560" height="340" rx="14"/>
+          <rect class="region region-a" x="36" y="76" width="256" height="288" rx="8"/>
+          <rect class="region region-b" x="308" y="76" width="256" height="288" rx="8"/>
+          <path class="boundary" d="M300 52v316"/>
+          <text class="t-a" x="50" y="100" data-i18n="fig.tenantA"></text>
+          <text class="t-b" x="550" y="100" text-anchor="end" data-i18n="fig.tenantB"></text>
+          <text class="t-dim" x="300" y="30" text-anchor="middle" data-i18n="fig.boundary"></text>
+
+          <!-- couplers -->
+          <g class="couplers">
+            <path d="M132 180h76M392 180h76M132 300h76M392 300h76"/>
+            <path d="M110 202v76M230 202v76M370 202v76M490 202v76"/>
+            <path class="cross" d="M252 180h96M252 300h96"/>
+          </g>
+
+          <!-- channel: readout correlation -->
+          <g class="ov ov-ro">
+            <path class="ro-bus" d="M56 132h488M110 132v26M230 132v26M370 132v26M490 132v26"/>
+            <text class="t-dim" x="544" y="124" text-anchor="end" data-i18n="fig.roline"></text>
+            <rect class="ro-tick" x="224" y="126" width="12" height="12"/>
+            <rect class="ro-tick ro-tick-2" x="364" y="126" width="12" height="12"/>
+            <path class="ro-link" d="M236 132h128"/>
+            <text class="t-hot t-halo" x="300" y="156" text-anchor="middle" data-i18n="fig.corr"></text>
+          </g>
+
+          <!-- channel: drive crosstalk -->
+          <g class="ov ov-xt" clip-path="url(#chip-clip)">
+            <circle class="ripple r1" cx="230" cy="300" r="150"/>
+            <circle class="ripple r2" cx="230" cy="300" r="150"/>
+            <circle class="ripple r3" cx="230" cy="300" r="150"/>
+          </g>
+          <g class="ov ov-xt">
+            <path class="drive" d="M230 418v-22c0-5 10-5 10-10s-20-5-20-10 20-5 20-10-20-5-20-10 10-5 10-10v-22"/>
+            <text class="t-a" x="212" y="404" text-anchor="end" data-i18n="fig.drive"></text>
+            <circle class="hit" cx="370" cy="300" r="31"/>
+            <text class="t-hot" x="406" y="346" data-i18n="fig.leak"></text>
+          </g>
+
+          <!-- channel: residual ZZ -->
+          <g class="ov ov-zz">
+            <path class="zz-link" d="M252 180h96M252 300h96"/>
+            <text class="t-hot t-big t-halo" x="300" y="166" text-anchor="middle">ZZ</text>
+            <text class="t-hot t-big t-halo" x="300" y="286" text-anchor="middle">ZZ</text>
+            <circle class="dial" cx="230" cy="180" r="31"/>
+            <circle class="dial" cx="230" cy="300" r="31"/>
+          </g>
+
+          <!-- channel: reset residue -->
+          <g class="ov ov-reset">
+            <circle class="ghost" cx="370" cy="180" r="21"/>
+            <circle class="ghost g2" cx="370" cy="300" r="21"/>
+            <circle class="hit" cx="370" cy="180" r="28"/>
+            <circle class="hit" cx="370" cy="300" r="28"/>
+            <path class="hot-line" d="M358 131a14 14 0 1 1 2 12M358 131v-8M358 131h8"/>
+            <text class="t-hot" x="392" y="143" data-i18n="fig.reset"></text>
+            <text class="t-hot" x="406" y="346" data-i18n="fig.residue"></text>
+          </g>
+
+          <!-- qubits -->
+          <g class="qubits">
+            <g class="q qa"><circle cx="110" cy="180" r="22"/><text x="110" y="184.5">Q0</text></g>
+            <g class="q qa"><circle cx="230" cy="180" r="22"/><text x="230" y="184.5">Q1</text></g>
+            <g class="q qb"><circle cx="370" cy="180" r="22"/><text x="370" y="184.5">Q2</text></g>
+            <g class="q qb"><circle cx="490" cy="180" r="22"/><text x="490" y="184.5">Q3</text></g>
+            <g class="q qa"><circle cx="110" cy="300" r="22"/><text x="110" y="304.5">Q4</text></g>
+            <g class="q qa"><circle cx="230" cy="300" r="22"/><text x="230" y="304.5">Q5</text></g>
+            <g class="q qb"><circle cx="370" cy="300" r="22"/><text x="370" y="304.5">Q6</text></g>
+            <g class="q qb"><circle cx="490" cy="300" r="22"/><text x="490" y="304.5">Q7</text></g>
+          </g>
+        </svg>
+
+        <div class="chip-pick" role="group" data-i18n-attr="aria-label:fig.pick">
+          <button type="button" data-channel-pick="xt" aria-pressed="true" data-i18n="ch.xt"></button>
+          <button type="button" data-channel-pick="zz" aria-pressed="false" data-i18n="ch.zz"></button>
+          <button type="button" data-channel-pick="reset" aria-pressed="false" data-i18n="ch.reset"></button>
+          <button type="button" data-channel-pick="ro" aria-pressed="false" data-i18n="ch.ro"></button>
+        </div>
+        <p class="chip-caption" id="chip-caption" aria-live="polite"></p>
+        <p class="chip-note" data-i18n="fig.note"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="sec" id="how">
+    <div class="wrap">
+      <p class="kicker" data-i18n="how.kicker"></p>
+      <h2 data-i18n="how.h2"></h2>
+      <ol class="steps">
+        <li>
+          <span class="step-n" aria-hidden="true">01</span>
+          <h3 data-i18n="s1.t"></h3>
+          <p data-i18n="s1.d"></p>
+        </li>
+        <li>
+          <span class="step-n" aria-hidden="true">02</span>
+          <h3 data-i18n="s2.t"></h3>
+          <p data-i18n="s2.d"></p>
+          <figure class="code" data-i18n-attr="aria-label:code.label">
+<pre><code><span class="cm" data-i18n="code.c1"></span>
+<span class="kw">for</span> t <span class="kw">in</span> waits:
+    counts[t] = ramsey(q_mine, wait=t, shots=n)
+<span class="cm" data-i18n="code.c2"></span>
+bit = decide(counts)</code></pre>
+            <figcaption data-i18n="code.note"></figcaption>
+          </figure>
+        </li>
+        <li>
+          <span class="step-n" aria-hidden="true">03</span>
+          <h3 data-i18n="s3.t"></h3>
+          <p data-i18n="s3.d"></p>
+          <p class="flag" aria-hidden="true">flag{<span>················</span>}</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="sec sec-alt" id="categories">
+    <div class="wrap">
+      <p class="kicker" data-i18n="cat.kicker"></p>
+      <div class="h-row">
+        <h2 data-i18n="cat.h2"></h2>
+        <span class="tag tag-draft" data-i18n="cat.draft"></span>
+      </div>
+      <p class="sec-lead" data-i18n="cat.lead"></p>
+
+      <ul class="cats">
+        <li class="cat">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M12 15a15 15 0 1 1-3 9"/><path d="M12 6v9h9"/><circle class="dot" cx="24" cy="24" r="4"/></svg>
+          <span class="cat-n" aria-hidden="true">01</span>
+          <h3 data-i18n="c1.t"></h3>
+          <p data-i18n="c1.d"></p>
+          <p class="lv lv-1"><span class="vh" data-i18n="lv.label"></span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-i18n="lv.1"></span></p>
+        </li>
+        <li class="cat">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 14h36"/><path d="M15 14v10M33 14v10"/><rect x="9" y="24" width="12" height="12"/><rect x="27" y="24" width="12" height="12"/><path class="hot" d="M21 30h6"/></svg>
+          <span class="cat-n" aria-hidden="true">02</span>
+          <h3 data-i18n="c2.t"></h3>
+          <p data-i18n="c2.d"></p>
+          <p class="lv lv-2"><span class="vh" data-i18n="lv.label"></span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-i18n="lv.2"></span></p>
+        </li>
+        <li class="cat">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 18c5-12 9-12 13 0s9 12 13 0 9-12 14 0"/><path class="hot" d="M4 36c5-5 9-5 13 0s9 5 13 0 9-5 14 0"/></svg>
+          <span class="cat-n" aria-hidden="true">03</span>
+          <h3 data-i18n="c3.t"></h3>
+          <p data-i18n="c3.d"></p>
+          <p class="lv lv-3"><span class="vh" data-i18n="lv.label"></span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-i18n="lv.3"></span></p>
+        </li>
+        <li class="cat">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="10" cy="24" r="6"/><circle cx="38" cy="24" r="6"/><path class="hot" d="M16 24h3l2-6 3 12 3-12 2 6h3"/></svg>
+          <span class="cat-n" aria-hidden="true">04</span>
+          <h3 data-i18n="c4.t"></h3>
+          <p data-i18n="c4.d"></p>
+          <p class="lv lv-3"><span class="vh" data-i18n="lv.label"></span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-i18n="lv.3"></span></p>
+        </li>
+        <li class="cat">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 36V12M16 36V22M24 36V8M32 36V26M40 36V16"/><path class="hot" d="M5 42h38"/></svg>
+          <span class="cat-n" aria-hidden="true">05</span>
+          <h3 data-i18n="c5.t"></h3>
+          <p data-i18n="c5.d"></p>
+          <p class="lv lv-4"><span class="vh" data-i18n="lv.label"></span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-i18n="lv.4"></span></p>
+        </li>
+        <li class="cat">
+          <svg class="glyph" viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M4 38h6c8 0 8-28 14-28s6 28 14 28h6"/><path class="hot" d="M4 44h40"/></svg>
+          <span class="cat-n" aria-hidden="true">06</span>
+          <h3 data-i18n="c6.t"></h3>
+          <p data-i18n="c6.d"></p>
+          <p class="lv lv-4"><span class="vh" data-i18n="lv.label"></span><span class="pips" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span data-i18n="lv.4"></span></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Scoreboard preview + why -->
+  <section class="sec" id="scoreboard">
+    <div class="wrap split">
+      <div>
+        <p class="kicker" data-i18n="sb.kicker"></p>
+        <div class="h-row">
+          <h2 data-i18n="sb.h2"></h2>
+          <span class="tag tag-sample" data-i18n="sb.sample"></span>
+        </div>
+        <p class="sec-lead" data-i18n="sb.lead"></p>
+      </div>
+
+      <div class="board">
+        <table>
+          <caption data-i18n="sb.caption"></caption>
+          <thead>
+            <tr>
+              <th scope="col" data-i18n="sb.rank"></th>
+              <th scope="col" data-i18n="sb.team"></th>
+              <th scope="col" class="num" data-i18n="sb.solved"></th>
+              <th scope="col" class="num" data-i18n="sb.score"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="rk">1</td><td><span class="team">cold_finger</span> <span class="mini" data-i18n="sb.sample"></span></td><td class="num">9</td><td class="num">2450</td></tr>
+            <tr><td class="rk">2</td><td><span class="team">dephased</span> <span class="mini" data-i18n="sb.sample"></span></td><td class="num">8</td><td class="num">2100</td></tr>
+            <tr><td class="rk">3</td><td><span class="team">t1_enjoyers</span> <span class="mini" data-i18n="sb.sample"></span></td><td class="num">7</td><td class="num">1800</td></tr>
+            <tr><td class="rk">4</td><td><span class="team">leaky_reset</span> <span class="mini" data-i18n="sb.sample"></span></td><td class="num">5</td><td class="num">1350</td></tr>
+            <tr><td class="rk">5</td><td><span class="team">zz_drift</span> <span class="mini" data-i18n="sb.sample"></span></td><td class="num">3</td><td class="num">900</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec-alt" id="why">
+    <div class="wrap">
+      <p class="kicker" data-i18n="why.kicker"></p>
+      <h2 data-i18n="why.h2"></h2>
+      <ul class="whys">
+        <li><h3 data-i18n="w1.t"></h3><p data-i18n="w1.d"></p></li>
+        <li><h3 data-i18n="w2.t"></h3><p data-i18n="w2.d"></p></li>
+        <li><h3 data-i18n="w3.t"></h3><p data-i18n="w3.d"></p></li>
+      </ul>
+      <p class="engine" data-i18n="why.engine"></p>
+    </div>
+  </section>
+
+  <!-- Status -->
+  <section class="sec" id="status">
+    <div class="wrap">
+      <p class="kicker" data-i18n="st.kicker"></p>
+      <h2 data-i18n="st.h2"></h2>
+      <ul class="status">
+        <li class="is-mock"><span data-i18n="st.home"></span><b data-i18n="st.mock"></b></li>
+        <li><span data-i18n="st.challenges"></span><b data-i18n="st.none"></b></li>
+        <li><span data-i18n="st.scoreboard"></span><b data-i18n="st.none"></b></li>
+        <li><span data-i18n="st.learn"></span><b data-i18n="st.none"></b></li>
+        <li><span data-i18n="st.signin"></span><b data-i18n="st.none"></b></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <p class="foot-brand">Yuragi <b>CTF</b></p>
+    <p data-i18n="foot.text"></p>
+  </div>
+</footer>
+
+<p class="mock-badge" data-i18n-attr="aria-label:mock.label"><span aria-hidden="true" class="mock-dot"></span><span data-i18n="mock.badge"></span></p>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden>
+  <p id="toast-text"></p>
+  <button type="button" id="toast-close" data-i18n-attr="aria-label:toast.close">
+    <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 4l8 8M12 4l-8 8"/></svg>
+  </button>
+</div>
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

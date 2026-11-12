@@ -162,7 +162,7 @@ window.YURAGI_I18N = {
     "s3.d": "Reconstruct the target's secret from your measurements and submit it as the flag. A correct flag scores.",
     "code.label": "Illustration of attack code",
     "code.note": "Illustrative only — not the real API.",
-    "code.c1": "# measure the phase shift on your qubit next to the boundary",
+    "code.c1": "# phase shift on your boundary qubit",
     "code.c2": "# decide the target's bit from the bias",
 
     "cat.kicker": "Categories",
